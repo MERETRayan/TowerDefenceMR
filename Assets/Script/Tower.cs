@@ -45,8 +45,10 @@ public class Tower : MonoBehaviour
             }
         if (enemis != null && enemis.Count > 0)
             {
-                Debug.Log("Shoot");
-                canShoot = false;
+            Debug.Log("Shoot");
+            canShoot = false;
+            Destroy(enemis[0].gameObject);
+            enemis.RemoveAt(0);
 
             }
         
