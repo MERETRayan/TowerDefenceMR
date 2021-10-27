@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class Enemis : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private Transform enemyTransform { get; set; } = null;
+
+    private void Start()
     {
-        
+        enemyTransform = GetComponent<Transform>();
     }
 
-    // Update is called once per frame
+  
     void Update()
     {
-        
+        enemyTransform.position += Vector3.forward * Time.deltaTime * 3;
     }
 }

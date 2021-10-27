@@ -15,10 +15,13 @@ public class Tower : MonoBehaviour
 
     private float fireRate { get { return _fireRate; } set { _fireRate = value; } }
 
-    private float currentFireRate { get; set;} = 0;
-    
+    private float currentFireRate { get; set; } = 0;
+
 
     private bool canShoot { get; set; } = true;
+
+    public int _value = 10;
+    public int value {  get { return _value; } }
 
 
 
@@ -29,29 +32,30 @@ public class Tower : MonoBehaviour
         enemis = new List<Enemis>();
     }
 
-    
+
     private void Update()
     {
-        
+
         if (!canShoot)
-            {
+        {
             currentFireRate += Time.deltaTime;
             if (currentFireRate >= fireRate)
-                {
+            {
                 canShoot = true;
                 currentFireRate = 0;
-                }
-            return;
             }
+            return;
+        }
         if (enemis != null && enemis.Count > 0)
-            {
+        {
             Debug.Log("Shoot");
             canShoot = false;
             Destroy(enemis[0].gameObject);
             enemis.RemoveAt(0);
+            GameManager.instance.addGold(1);
 
-            }
-        
+        }
+
     }
     public void Upgrade()
     {
@@ -60,25 +64,26 @@ public class Tower : MonoBehaviour
             return;
         }
 
-        Instantiate(upgrade, transform.position, transform.rotation);
-        Destroy(gameObject);
-    }
-    private void OnTriggerEnter(Collider other)
-    {
-        Enemis enemy = other.GetComponent<Enemis>();
-        if (enemy != null)
+
+        if (GameManager.instance.gold < value)
         {
-            enemis.Add(enemy);
+            return;
         }
 
-     
+
+
+        Instantiate(upgrade, transform.position, transform.rotation);
+        GameManager.instance.addGold(-10);
+        Destroy(gameObject);
     }
-    private void OnTriggerExit(Collider other)
+    public void AddEnemy(Enemis enemy)
     {
-        Enemis enemy = other.GetComponent<Enemis>();
-        if (enemy != null)
-        {
-            enemis.Remove(enemy);
-        }
+        enemis.Add(enemy);
     }
+
+    public void RemoveEnemy(Enemis enemy)
+    {
+        enemis.Remove(enemy);
+    }
+
 }

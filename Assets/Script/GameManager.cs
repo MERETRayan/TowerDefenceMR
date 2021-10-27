@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
 
 
     public static GameManager instance { get; set; } = null;
+
+
     private GameState gameState { get; set; } = GameState.PREPARATION;
 
 
@@ -23,6 +25,9 @@ public class GameManager : MonoBehaviour
 
     private float gameTimer { get; set; } = 0;
     private const float preparationTime = 10;
+
+    public int gold { get; set; } = 10; 
+
 
 
     private void Awake()
@@ -57,5 +62,11 @@ public class GameManager : MonoBehaviour
                 break;
 
         }
+    }
+
+    public void addGold(int value)
+    {
+        gold += value;
+        UIManager.instance.SetGold(gold);
     }
 }

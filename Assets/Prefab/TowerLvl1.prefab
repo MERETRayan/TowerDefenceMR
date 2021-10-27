@@ -1,5 +1,62 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1759291650552556713
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5523190641220442943}
+  - component: {fileID: 7448246276235525685}
+  - component: {fileID: 754742838231918663}
+  m_Layer: 2
+  m_Name: Dectection
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5523190641220442943
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1759291650552556713}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1405909356810897995}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &7448246276235525685
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1759291650552556713}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 4
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &754742838231918663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1759291650552556713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 165f76a8e8aedd74b84e2f5c61f46a76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5642212295939045314
 GameObject:
   m_ObjectHideFlags: 0
@@ -11,7 +68,7 @@ GameObject:
   - component: {fileID: 3780286805008313143}
   - component: {fileID: 2785016353128614191}
   - component: {fileID: 1379259922357590167}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,10 +147,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1405909356810897995}
-  - component: {fileID: 2299672393585850395}
   - component: {fileID: 1309170638899283230}
-  - component: {fileID: 3272919680158852843}
-  m_Layer: 0
+  - component: {fileID: 1251434857856060450}
+  m_Layer: 6
   m_Name: TowerLvl1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -112,23 +168,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3780286805008313143}
+  - {fileID: 5523190641220442943}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2299672393585850395
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7120571416917112403}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4fc4c8c6bad0904b86fd17359c4eaad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _upgrade: {fileID: 2017432608340714956, guid: 7db24daebf8f0c24c8ae5c0ab9e0cf60, type: 3}
-  _fireRate: 0.1
 --- !u!65 &1309170638899283230
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -142,16 +185,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!135 &3272919680158852843
-SphereCollider:
+--- !u!114 &1251434857856060450
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7120571416917112403}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 4
-  m_Center: {x: 0, y: 0, z: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: babffa377e89d94418f1f43e86a6c1b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _upgrade: {fileID: 2017432608340714956, guid: 1ee26dbb588dbd7419f9033a8b23e48c, type: 3}
+  _fireRate: 0.1
+  _value: 10
